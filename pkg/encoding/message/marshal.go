@@ -1,4 +1,4 @@
-package sip
+package message
 
 import (
 	"bytes"
@@ -31,6 +31,7 @@ func Marshal(message *Message) ([]byte, error) {
 	buffer.Write(CRLF)
 
 	headers := make([]string, 0, len(message.Headers))
+
 	for key := range message.Headers {
 		headers = append(headers, key)
 	}

@@ -1,6 +1,8 @@
-package sip
+package message
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func validateRequiredKeysOnMap(hashMap map[string]any, keys []string) error {
 	for _, k := range keys {

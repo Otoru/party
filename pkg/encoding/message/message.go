@@ -1,5 +1,5 @@
-// The SIP package implements SIP encoding and decoding as defined in RFC 3261.
-package sip
+// The message package implements SIP message encoding and decoding as defined in RFC 3261.
+package message
 
 // Metadata holds the intricate information of a SIP message.
 //

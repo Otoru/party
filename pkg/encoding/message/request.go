@@ -1,6 +1,11 @@
-package sip
+package message
 
 // CreateSIPRequest receives the information to create a new SIP request.
+//
+// Metadata must contain the following information:
+//   - method
+//   - uri
+//   - version
 //
 // The following headers are considered mandatory:
 //   - To
@@ -21,13 +26,8 @@ func CreateSIPRequest(metadata Metadata, headers Headers, body string) (*Message
 
 	message.Metadata = metadata
 
-	if err := ValidateHeaders(headers, []string{"To", "From", "Max-Forwards", "Via", "Call-ID"}); err != nil {
+	if err := ValidateHeaders(headers, []string{"CSeq", "To", "From", "Max-Forwards", "Via", "Call-ID"}); err != nil {
 		return nil, err
-	}
-
-	if _, ok := headers["CSeq"]; !ok {
-		method := metadata["method"]
-		headers["CSeq"] = []string{"1 " + method}
 	}
 
 	message.Headers = headers

@@ -1,4 +1,4 @@
-package sip
+package message
 
 // Request is a constant used to identify request kind messages.
 const Request = "REQUEST"
